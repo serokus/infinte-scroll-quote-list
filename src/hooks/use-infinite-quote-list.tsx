@@ -17,8 +17,10 @@ export const useInfiniteQuoteList = () => {
 
         return response
       } catch (error) {
-        const _error = error as HTTPError
-        throw new Error(`Failed to fetch quotes: ${_error.message}`)
+        if (error instanceof HTTPError) {
+          throw new Error(`Failed to fetch quotes: ${error.message}`)
+        }
+        throw new Error(`Failed to fetch quotes: unknown error`)
       }
     },
     initialPageParam: undefined as number | undefined,
