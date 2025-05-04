@@ -67,9 +67,7 @@ export const InfinteQuoteList = () => {
             <p className="text-center">No quotes yet.</p>
           )}
           {(isError || isFetchNextPageError) && (
-            <div className="text-center text-red-500">
-              Error loading quotes: {error.message}
-            </div>
+            <p className="text-center text-red-500">{error.message}</p>
           )}
         </>
       )}
