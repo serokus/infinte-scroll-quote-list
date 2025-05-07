@@ -1,4 +1,5 @@
 'use client'
+import { Button } from './ui/button'
 import { Skeleton } from './ui/skeleton'
 import { InfiniteScroller } from './infinite-scroller'
 import { useInfiniteQuoteList } from '@/hooks/use-infinite-quote-list'
@@ -21,7 +22,7 @@ export const InfinteQuoteList = () => {
   return (
     <>
       {isPending ? (
-        <div className="grid grid-cols-1 gap-y-4">
+        <div className="grid grid-cols-2 gap-4">
           {Array.from({ length: 10 }).map((_, i) => {
             return (
               <div
@@ -38,7 +39,7 @@ export const InfinteQuoteList = () => {
         <>
           {quotes && quotes.length > 0 && (
             <InfiniteScroller
-              className="space-y-4"
+              className="grid grid-cols-2 gap-4"
               onBottomReached={() =>
                 hasNextPage &&
                 !isFetching &&
@@ -50,14 +51,16 @@ export const InfinteQuoteList = () => {
                 return (
                   <section
                     key={quote.id}
-                    className="bg-background p-8 rounded-sm border border-border space-y-4"
+                    className="bg-background p-8 rounded-sm border border-border"
                   >
-                    <p className="italic font-serif text-foreground text-base text-pretty">
-                      {quote.quote}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {quote.author}
-                    </p>
+                    <div className="space-y-4">
+                      <p className="italic font-serif text-foreground text-base text-pretty">
+                        {quote.quote}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {quote.author}
+                      </p>
+                    </div>
                   </section>
                 )
               })}
