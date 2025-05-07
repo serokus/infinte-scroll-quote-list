@@ -21,7 +21,7 @@ export const InfinteQuoteList = () => {
   return (
     <>
       {isPending ? (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3.5">
           {Array.from({ length: 10 }).map((_, i) => {
             return (
               <div
@@ -38,7 +38,7 @@ export const InfinteQuoteList = () => {
         <>
           {quotes && quotes.length > 0 && (
             <InfiniteScroller
-              className="columns-2 space-y-4"
+              className="columns-2 gap-x-3.5 space-y-3.5"
               onBottomReached={() =>
                 hasNextPage &&
                 !isFetching &&
@@ -48,9 +48,9 @@ export const InfinteQuoteList = () => {
             >
               {quotes?.map((quote) => {
                 return (
-                  <section
+                  <div
                     key={quote.id}
-                    className="w-full bg-background p-8 rounded-sm border border-border"
+                    className="w-full bg-background p-8 max-md:p-6 rounded-sm border border-border break-inside-avoid"
                   >
                     <div className="space-y-4">
                       <p className="italic font-serif text-foreground text-base text-pretty">
@@ -60,7 +60,7 @@ export const InfinteQuoteList = () => {
                         {quote.author}
                       </p>
                     </div>
-                  </section>
+                  </div>
                 )
               })}
             </InfiniteScroller>
