@@ -38,7 +38,7 @@ export const InfinteQuoteList = () => {
         <>
           {quotes && quotes.length > 0 && (
             <InfiniteScroller
-              className="grid grid-cols-2 gap-4"
+              className="columns-2 space-y-4"
               onBottomReached={() =>
                 hasNextPage &&
                 !isFetching &&
@@ -50,7 +50,7 @@ export const InfinteQuoteList = () => {
                 return (
                   <section
                     key={quote.id}
-                    className="bg-background p-8 rounded-sm border border-border max-h-fit"
+                    className="w-full bg-background p-8 rounded-sm border border-border"
                   >
                     <div className="space-y-4">
                       <p className="italic font-serif text-foreground text-base text-pretty">
