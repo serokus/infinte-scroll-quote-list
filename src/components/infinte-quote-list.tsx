@@ -1,5 +1,4 @@
 'use client'
-import { Button } from './ui/button'
 import { Skeleton } from './ui/skeleton'
 import { InfiniteScroller } from './infinite-scroller'
 import { useInfiniteQuoteList } from '@/hooks/use-infinite-quote-list'
@@ -51,7 +50,7 @@ export const InfinteQuoteList = () => {
                 return (
                   <section
                     key={quote.id}
-                    className="bg-background p-8 rounded-sm border border-border"
+                    className="bg-background p-8 rounded-sm border border-border max-h-fit"
                   >
                     <div className="space-y-4">
                       <p className="italic font-serif text-foreground text-base text-pretty">
